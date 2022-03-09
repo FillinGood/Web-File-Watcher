@@ -7,6 +7,10 @@
     };
     ws.onopen = () => {
       console.log('connected');
+      ws.onmessage = (e)=>{
+        const url = e.data;
+        document.getElementById("img").src = url;
+      }
       ws.send(window.location.pathname);
     };
   }
